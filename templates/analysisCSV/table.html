@@ -1,0 +1,56 @@
+{% if data_all_rows.has_other_pages %}
+<div class="pagination">
+    <span class="step-links">
+        {% if data_all_rows.has_previous %}
+        <a href="?page=1" class="ajax-link">&laquo; first</a>
+        <a href="?page={{ data_all_rows.previous_page_number }}" class="ajax-link">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ data_all_rows.number }} of {{ data_all_rows.paginator.num_pages }}.
+        </span>
+
+        {% if data_all_rows.has_next %}
+        <a href="?page={{ data_all_rows.next_page_number }}" class="ajax-link">next</a>
+        <a href="?page={{ data_all_rows.paginator.num_pages }}" class="ajax-link">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endif %}
+<table>
+    <thead>
+        <tr>
+            {% for column in data_all_rows.object_list.columns %}
+            <th>{{ column }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in data_all_rows.object_list.values %}
+        <tr>
+            {% for value in row %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% if data_all_rows.has_other_pages %}
+<div class="pagination">
+    <span class="step-links">
+        {% if data_all_rows.has_previous %}
+        <a href="?page=1" class="ajax-link">&laquo; first</a>
+        <a href="?page={{ data_all_rows.previous_page_number }}" class="ajax-link">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ data_all_rows.number }} of {{ data_all_rows.paginator.num_pages }}.
+        </span>
+
+        {% if data_all_rows.has_next %}
+        <a href="?page={{ data_all_rows.next_page_number }}" class="ajax-link">next</a>
+        <a href="?page={{ data_all_rows.paginator.num_pages }}" class="ajax-link">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endif %}

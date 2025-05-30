@@ -8,11 +8,12 @@ training_model/train/*
 training_model/val/*
 weights/*
 data/*
-classify_model/__pycache__/*
-classify_model/migrations/*
+classify/__pycache__/*
+classify/migrations/*
 analysisCSV/__pycache__/*
 analysisCSV/migrations/*
-demo-env/*
+demo-venv/*
 Tool/*
 webMachine/__pycache__/*
 FlowerDetectMobile/__pycache__/*
+models/*

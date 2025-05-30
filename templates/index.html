@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #e9ecef;
+            color: #343a40;
+            margin: 0;
+            padding-top: 20px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        h1 {
+            color: #007bff; /* Bootstrap primary blue */
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 1.75rem;
+            color: #495057;
+        }
+        .feature-description {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .feature-link .btn {
+            width: 100%; /* Full width */
+            font-size: 1.1rem;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow */
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .feature-link .btn:hover, .feature-link .btn:focus {
+            background-color: #0056b3;
+            transform: translateY(-3px); /* Slight lift */
+            color: #fff;
+        }
+        .row > .col-md-6 {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        <h1 class="text-center">Welcome to the Machine Learning Website</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="feature-description">
+                    <h2>CSV Upload & Analysis</h2>
+                    <p>Upload and analyze CSV files to gain insights and perform data processing tasks.</p>
+                </div>
+                <div class="feature-link">
+                    <a href="{% url 'index_csv' %}" class="btn btn-primary btn-lg">Start CSV Analysis</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-description">
+                    <h2>Flower Classification & Recognition</h2>
+                    <p>Utilize machine learning algorithms to classify and recognize flowers in images.</p>
+                </div>
+                <div class="feature-link">
+                    <a href="{% url 'index_classify' %}" class="btn btn-primary btn-lg">Start Flowers Detection</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% include 'footer.html' %}
+
+</body>
+</html>

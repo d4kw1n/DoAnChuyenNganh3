@@ -1,0 +1,61 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Phần ảnh -->
+            <div class="d-flex justify-content-center gap-4 flex-wrap mb-4">
+                <div class="text-center">
+                    <div class="image-wrapper">
+                        <img src="/classify/image/{{ image_url }}" class="img-fluid rounded shadow-sm" alt="Ảnh gốc"/>
+                    </div>
+                    <p class="mt-2 text-muted">Ảnh gốc</p>
+                </div>
+                <div class="text-center">
+                    <div class="image-wrapper">
+                        <img src="/classify/image/{{ img_result }}" class="img-fluid rounded shadow-sm" alt="Ảnh đã phân loại"/>
+                    </div>
+                    <p class="mt-2 text-muted">Ảnh đã phân loại</p>
+                </div>
+            </div>
+
+            <!-- Phần trạng thái và nút -->
+            <div class="text-center mb-4">
+                <p class="status text-success fw-bold">Status: {{ status }}</p>
+                <div class="feature-link">
+                    <a href="{% url 'index_classify' %}" class="btn btn-primary btn-lg">Classify Another Image</a>
+                </div>
+            </div>
+
+            <!-- Phần kết quả phân loại -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Classification Result</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for item in result %}
+                        <li class="list-group-item">{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .image-wrapper {
+        max-width: 300px;
+        width: 100%;
+    }
+    .image-wrapper img {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        object-fit: cover;
+    }
+    .status {
+        font-size: 1.1rem;
+    }
+    .card {
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>
